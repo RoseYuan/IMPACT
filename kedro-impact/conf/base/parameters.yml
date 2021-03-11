@@ -1,0 +1,89 @@
+# Parameters for the pipelines.
+
+test_data_ratio: 0.2
+example_num_train_iter: 10000
+example_learning_rate: 0.01
+
+uuid_keys: [ "_submission__uuid","_uuid" ] # list of potential uuid columns
+
+# shortnames for data sheets
+v4_shortname: "v4"
+i1_shortname: "i1"
+i2_shortname: "i2"
+c1_shortname: "c1"
+g1_shortname: "g1"
+
+# saving names for models
+xgboost_shortname: "xgboost_model"
+nn_shortname: "nn_model"
+random_forest_shortname: "rf_model"
+catboost_shortname: "catboost_model"
+pca_shortname: "pca"
+power_transformer_shortname: "p_tranformer"
+
+# params for feature engineering
+ordinal_cat_cols: { "water_sufficiency": [ "water_sufficiency/insufficient","water_sufficiency/barely_sufficient",
+                                           "water_sufficiency/sufficient","water_sufficiency/nan" ],
+                    "safety": [ "safety/very_poor","safety/poor","safety/okay","safety/good","safety/very_good",'safety/nan' ],
+                    "health_facility_distance": [ "health_facility_distance/within_2km","health_facility_distance/2_5km",
+                                                  "health_facility_distance/6_10km","health_facility_distance/more_10km",
+                                                  "health_facility_distance/none","health_facility_distance/nan" ],
+                    "market_distance": [ "market_distance/within_2km","market_distance/2_5km","market_distance/6_10km",
+                                         "market_distance/more_10km","market_distance/nan" ],
+                    "shelter_damage_extent": [ "shelter_damage_extent/minor_damage","shelter_damage_extent/partial_damage",
+                                               "shelter_damage_extent/significant_damage",
+                                               "shelter_damage_extent/fully_destroyed",
+                                               "shelter_damage_extent/nan" ],
+                    "agricultural_impact_how": [ "agricultural_impact_how/0_25","agricultural_impact_how/26_50",
+                                                 "agricultural_impact_how/51_75","agricultural_impact_how/76_100",
+                                                 "agricultural_impact_how/nan" ],
+                    "lcsi_category": [ "lcsi_category/food_secure","lcsi_category/marginally_insecure",
+                                       "lcsi_category/moderately_insecure","lcsi_category/severely_insecure","lcsi_category/nan" ],
+}
+
+new_cols1_sum: {
+  "females_total": [ "females_0_2_total","females_3_5_total","females_6_12_total","females_13_18_total",
+                     "females_19_59_total","females_60_plus_total" ],
+  "males_total": [ "males_0_2_total","males_3_5_total","males_6_12_total","males_13_18_total",
+                   "males_19_59_total","males_60_plus_total" ],
+}
+
+new_cols2_sum: {
+  "females_11_plus_total": [ "females_11_17_total","females_18_plus_total" ],
+  "males_11_plus_total": [ "males_11_17_total", "males_18_plus_total" ],
+}
+
+new_cols_frac: {
+  "child_worker_age": [ "children_working" ],
+  "females_11_plus_total": [ "female_literacy" ],
+  "males_11_plus_total": [ "male_literacy" ],
+  "females_total": [ "literacy_age_female_total","pregnant",'lactating' ],
+  "males_total": [ "literacy_age_male_total" ],
+  "boys_ed": [ "boys_marriage" ],
+  "girls_ed": [ "girls_marriage" ],
+  "diarrhea_total": [ "diarrhea_cases" ],
+}
+
+num: [ 'blankets_number','rooms',
+       'cb_return_displace_year',"idp_displ_year",'cb_return_return_year',
+       'debt_amount',"food_exp","water_expt",'rent_exp',
+       'ag_income','livestock_income',
+       'rent_income','small_business_income','unskill_labor_income','skill_labor_income',
+       'formal_employment_income','gov_benefits_income','hum_assistance_income','remittance_income',
+       'loans_income','asset_selling_income',
+       'fuel_exp','debt_exp',
+]
+
+normal_value_ordinal: {
+  "safety": [ "safety/poor","safety/okay","safety/good" ],
+  "health_facility_distance": [ "health_facility_distance/within_2km","health_facility_distance/2_5km","health_facility_distance/6_10km" ],
+  "market_distance": [ "market_distance/within_2km","market_distance/2_5km","market_distance/6_10km" ],
+  "shelter_damage_extent": [ "shelter_damage_extent/minor_damage","shelter_damage_extent/partial_damage","shelter_damage_extent/significant_damage" ],
+  "agricultural_impact_how": [ "agricultural_impact_how/0_25","agricultural_impact_how/26_50","agricultural_impact_how/51_75" ],
+}
+
+# params for threshold tuning
+CV_NUMBER: 5
+params_xgbm_cv: {'max_depth': 10, 'min_child_weight': 6, 'eta': .1, 'subsample': 1, 'colsample_bytree': 0.9,
+                 'objective': 'binary:logistic', 'eval_metric': "logloss"}
+selected_threshold: 0.2

@@ -1,0 +1,318 @@
+# In this YML file, the files / models created in the different pipelines
+# are saved to a certain folder.
+
+# name (as specified in the pipeline node under -output):
+#   type: file type
+#   filepath: chosen saving path for this file +  file name under which the file should be saved at """
+
+
+#####
+# OUTPUTS FROM: DATA ENGINEERING PIPELINE
+#####
+
+# outputs from read_data_pipeline
+
+raw_v4:
+  type: pickle.PickleDataSet
+  filepath: data/01_raw/raw_data_v4.pkl
+
+raw_c1:
+  type: pickle.PickleDataSet
+  filepath: data/01_raw/raw_data_c1.pkl
+
+raw_g1:
+  type: pickle.PickleDataSet
+  filepath: data/01_raw/raw_data_g1.pkl
+
+raw_i1:
+  type: pickle.PickleDataSet
+  filepath: data/01_raw/raw_data_i1.pkl
+
+raw_i2:
+  type: pickle.PickleDataSet
+  filepath: data/01_raw/raw_data_i2.pkl
+
+clean_v4:
+  type: pickle.PickleDataSet
+  filepath: data/01_raw/cleaned_master_v4.pkl
+
+clean_c1:
+  type: pickle.PickleDataSet
+  filepath: data/01_raw/cleaned_master_c1.pkl
+
+clean_g1:
+  type: pickle.PickleDataSet
+  filepath: data/01_raw/cleaned_master_g1.pkl
+
+clean_i1:
+  type: pickle.PickleDataSet
+  filepath: data/01_raw/cleaned_master_i1.pkl
+
+clean_i2:
+  type: pickle.PickleDataSet
+  filepath: data/01_raw/cleaned_master_i2.pkl
+
+deletions_log:
+  type: pickle.PickleDataSet
+  filepath: data/01_raw/cleaned_master_deletions_log.pkl
+
+MUAC_deletion_log:
+  type: pickle.PickleDataSet
+  filepath: data/01_raw/cleaned_master_MUAC_deletion_log.pkl
+
+clean_log:
+  type: pickle.PickleDataSet
+  filepath: data/01_raw/cleaned_master_clean_log.pkl
+
+deleted_v4:
+  type: pickle.PickleDataSet
+  filepath: data/02_intermediate/deleted_v4.pkl
+
+# outputs from data_prepare_pipeline
+
+whole_v4_dirty:
+  type: pickle.PickleDataSet
+  filepath: data/02_intermediate/labeled_whole_v4_dirty.pkl
+
+whole_i1_dirty:
+  type: pickle.PickleDataSet
+  filepath: data/02_intermediate/labeled_whole_i1_dirty.pkl
+
+whole_i2_dirty:
+  type: pickle.PickleDataSet
+  filepath: data/02_intermediate/labeled_whole_i2_dirty.pkl
+
+whole_c1_dirty:
+  type: pickle.PickleDataSet
+  filepath: data/02_intermediate/labeled_whole_c1_dirty.pkl
+
+whole_g1_dirty:
+  type: pickle.PickleDataSet
+  filepath: data/02_intermediate/labeled_whole_g1_dirty.pkl
+
+# outputs from pre_clean_pipeline
+
+whole_v4:
+  type: pickle.PickleDataSet
+  filepath: data/02_intermediate/labeled_whole_v4.pkl
+
+whole_i1:
+  type: pickle.PickleDataSet
+  filepath: data/02_intermediate/labeled_whole_i1.pkl
+
+whole_i2:
+  type: pickle.PickleDataSet
+  filepath: data/02_intermediate/labeled_whole_i2.pkl
+
+whole_c1:
+  type: pickle.PickleDataSet
+  filepath: data/02_intermediate/labeled_whole_c1.pkl
+
+whole_g1:
+  type: pickle.PickleDataSet
+  filepath: data/02_intermediate/labeled_whole_g1.pkl
+
+
+#
+First_clean_part:
+  type: pickle.PickleDataSet
+  filepath: data/03_primary/Main_file_first_part_wo_NAN.pkl
+
+Second_clean_part:
+  type: pickle.PickleDataSet
+  filepath: data/03_primary/Main_file_second_part.pkl
+
+Third_clean_part:
+  type: pickle.PickleDataSet
+  filepath: data/03_primary/AFG1901_WoA_MSNA_v4_3nd_light_imputed.pkl
+
+Main_cleaned_master_file:
+  type: pandas.ExcelDataSet
+  filepath: data/01_raw/WoA_MSNA_cleaned_master_file.xlsx
+
+whole_v4_clean:
+  type: pickle.PickleDataSet
+  filepath: data/03_primary/labeled_whole_v4_cleaned.pkl
+
+whole_v4_clean_remove_broken:
+  type: pickle.PickleDataSet
+  filepath: data/03_primary/labeled_whole_v4_cleaned_removed_broken.pkl
+
+# extrasheets
+whole_i1_clean:
+  type: pickle.PickleDataSet
+  filepath: data/03_primary/labeled_whole_i1_cleaned.pkl
+
+whole_i2_clean:
+  type: pickle.PickleDataSet
+  filepath: data/03_primary/labeled_whole_i2_cleaned.pkl
+
+whole_c1_clean:
+  type: pickle.PickleDataSet
+  filepath: data/03_primary/labeled_whole_c1_cleaned.pkl
+
+whole_g1_clean:
+  type: pickle.PickleDataSet
+  filepath: data/03_primary/labeled_whole_g1_cleaned.pkl
+
+whole_i1_clean_remove_broken:
+  type: pickle.PickleDataSet
+  filepath: data/03_primary/labeled_whole_i1_cleaned_removed_broken.pkl
+
+whole_i2_clean_remove_broken:
+  type: pickle.PickleDataSet
+  filepath: data/03_primary/labeled_whole_i2_cleaned_removed_broken.pkl
+
+whole_c1_clean_remove_broken:
+  type: pickle.PickleDataSet
+  filepath: data/03_primary/labeled_whole_c1_cleaned_removed_broken.pkl
+
+whole_g1_clean_remove_broken:
+  type: pickle.PickleDataSet
+  filepath: data/03_primary/labeled_whole_g1_cleaned_removed_broken.pkl
+
+# train test split main sheet v4
+train_x:
+  type: pickle.PickleDataSet
+  filepath: data/05_model_input/train_x.pkl
+
+train_y:
+  type: pickle.PickleDataSet
+  filepath: data/05_model_input/train_y.pkl
+
+test_x:
+  type: pickle.PickleDataSet
+  filepath: data/05_model_input/test_x.pkl
+
+test_y:
+  type: pickle.PickleDataSet
+  filepath: data/05_model_input/test_y.pkl
+
+# train test split extrasheets
+# i1
+i1_train_x:
+  type: pickle.PickleDataSet
+  filepath: data/05_model_input/i1_train_x.pkl
+
+i1_train_y:
+  type: pickle.PickleDataSet
+  filepath: data/05_model_input/i1_train_y.pkl
+
+i1_test_x:
+  type: pickle.PickleDataSet
+  filepath: data/05_model_input/i1_test_x.pkl
+
+i1_test_y:
+  type: pickle.PickleDataSet
+  filepath: data/05_model_input/i1_test_y.pkl
+# i2
+i2_train_x:
+  type: pickle.PickleDataSet
+  filepath: data/05_model_input/i2_train_x.pkl
+
+i2_train_y:
+  type: pickle.PickleDataSet
+  filepath: data/05_model_input/i2_train_y.pkl
+
+i2_test_x:
+  type: pickle.PickleDataSet
+  filepath: data/05_model_input/i2_test_x.pkl
+
+i2_test_y:
+  type: pickle.PickleDataSet
+  filepath: data/05_model_input/i2_test_y.pkl
+# c1
+c1_train_x:
+  type: pickle.PickleDataSet
+  filepath: data/05_model_input/c1_train_x.pkl
+
+c1_train_y:
+  type: pickle.PickleDataSet
+  filepath: data/05_model_input/c1_train_y.pkl
+
+c1_test_x:
+  type: pickle.PickleDataSet
+  filepath: data/05_model_input/c1_test_x.pkl
+
+c1_test_y:
+  type: pickle.PickleDataSet
+  filepath: data/05_model_input/c1_test_y.pkl
+# g1
+g1_train_x:
+  type: pickle.PickleDataSet
+  filepath: data/05_model_input/g1_train_x.pkl
+
+g1_train_y:
+  type: pickle.PickleDataSet
+  filepath: data/05_model_input/g1_train_y.pkl
+
+g1_test_x:
+  type: pickle.PickleDataSet
+  filepath: data/05_model_input/g1_test_x.pkl
+
+g1_test_y:
+  type: pickle.PickleDataSet
+  filepath: data/05_model_input/g1_test_y.pkl
+
+# output from feature engineering pipeline
+orderings_ordinal:
+  type: json.JSONDataSet
+  filepath: data/04_feature/orderings_ordinal.json
+
+whole_v4_clean_fe4:
+  type: pickle.PickleDataSet
+  filepath: data/04_feature/labeled_whole_v4_cleaned_added_features.pkl
+
+whole_v4_imputed:
+  type: pickle.PickleDataSet
+  filepath: data/04_feature/labeled_whole_v4_cleaned_added_features_imputed.pkl
+
+
+#####
+# OUTPUTS FROM: DATA SCIENCE PIPELINE
+#####
+
+### MODELS
+
+# baseline model
+xgb_baseline:
+  type: pickle.PickleDataSet
+  filepath: data/06_models/xgb_baseline.pkl
+
+#final_model
+xgb_final:
+  type: pickle.PickleDataSet
+  filepath: data/06_models/xgb_final.pkl
+
+
+
+# baseline model for extrasheets
+xgb_baseline_i1:
+  type: pickle.PickleDataSet
+  filepath: data/06_models/xgb_baseline_i1.pkl
+
+xgb_baseline_i2:
+  type: pickle.PickleDataSet
+  filepath: data/06_models/xgb_baseline_i2.pkl
+
+xgb_baseline_c1:
+  type: pickle.PickleDataSet
+  filepath: data/06_models/xgb_baseline_c1.pkl
+
+xgb_baseline_g1:
+  type: pickle.PickleDataSet
+  filepath: data/06_models/xgb_baseline_g1.pkl
+
+# neural network
+
+NN_model:
+  type: tensorflow.TensorFlowModelDataset
+  filepath: data/06_models/NN_model.hd5
+  versioned: True
+
+
+
+df_prc:
+  type: pickle.PickleDataSet
+  filepath: data/07_model_output/xgb_precision_recall_curve.pkl
+
