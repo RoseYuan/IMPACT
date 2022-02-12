@@ -1,3 +1,6 @@
+# Report of the project
+See file Report_for_IMPACT_project.pdf
+
 # Framework of the Project
 This project is implemented using the Kedro framework (link to documentation: https://kedro.readthedocs.io/en/stable/)  
 In this Readme, we introduce the steps which are needed in order to run this project successfully. 
