@@ -1,7 +1,5 @@
 # About this project
-An efficient and effective distribution of humanitarian aid calls for an accurate assessment of the help needed by affected people in crisis regions. This assessment is heavily reliant on data collected via household surveys. Due to limited geographical accessibility of crisis regions and cultural barriers, IMPACT Initiatives often needs to rely on third parties to conduct the surveys, which gives rise to the problem of possible data falsification by the enumerator which can lead to long cleaning processes The team proposed a solution that utilizes a supervised algorithm from the family of ensemble decision trees in order to learn the patterns of potentially falsified interviews.
-
-For more info, please see the [report](https://github.com/RoseYuan/IMPACT/blob/master/Report.pdf).
+This is a project of [Hack4Good](https://analytics-club.org/wordpress/hack4good/) program in 2021. Hack4Good is a hackathon event organized by ETH Zurich Analytics Club each year. It helps match data science enthusiasts from ETH Zurich with non-profit organisations that promote social causes. In this project, we collaborated with [IMPACT initiatives](https://www.impact-initiatives.org/) and delivered a solution to identify potentially falsified interviews from their household surveys in crisis regions. For more info, please see the [report](https://github.com/RoseYuan/IMPACT/blob/master/Report.pdf).
 
 # Framework of the Project
 This project is implemented using the Kedro framework (link to documentation: https://kedro.readthedocs.io/en/stable/)  
